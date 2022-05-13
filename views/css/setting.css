@@ -1,0 +1,126 @@
+.settings-panel {
+	position: absolute;
+	margin-left: 10vw;
+	margin-top: calc(2vh + 50px);
+	width: 80vw;
+	height: 61vh;
+	box-shadow: 15px 15px 40px  rgba(255, 255, 255, 0.1);
+	border-radius: 0px 5px 15px 5px;
+	background-image : url(../img/header.jpg);
+	background-size: 100%;
+	background-position: 50%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	overflow: hidden;
+}
+
+.settings-chunk {
+	background: rgba(0, 0, 0, 0.2);
+	padding: 1em;
+	border-radius: 5px;
+	color: #fff;
+	position: relative;
+	width: 300px;
+	margin-top: 60px;
+	margin-left: 60px;
+	z-index: 10;
+}
+
+.settings-chunk h3{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+.settings-chunk hr{
+	position: relative;
+	background-color: #fff;
+	height: 2px;
+	width: 300px;
+}
+
+.settings-chunk div{
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	width: 300px;
+}
+
+.maxfps input[type="range"] {
+	position: absolute;
+	right: 15px;
+	top: 110px;
+	width: 150px;
+	height: 5px;
+}
+
+.cameradistance input[type="range"] {
+	position: absolute;
+	right: 15px;
+	top: 160px;
+	width: 150px;
+	height: 5px;
+}
+
+.settings-chunk #resolutionSet {
+	position: absolute;
+	right: 15px;
+	top: 205px;
+}
+
+.settings-chunk select {
+	background: #0563af;
+	color: #fff;
+	padding: 6px;
+	weight: 250px;
+	width: 150px;
+	height: 35px;
+	border: none;
+	font-size: 18px;
+	box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+.settings-chunk input[type="checkbox"] {
+	position: absolute;
+	right: 0px;
+	width: 60px;
+	height: 30px;
+	margin: 10px;
+	outline: none;
+	background-color: #111;
+	-webkit-appearance: none;
+	cursor: pointer;
+	border-radius: 20px;
+	box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.1),
+				5px 5px 10px rgba(0, 0, 0, 0.1),
+				inset -2px -2px 5px rgba(255, 255, 255, 0.1),
+				inset 2px 2px 5px rgba(0, 0, 0, 0.5),
+				0 0 0 2px rgba(0, 0, 0, 0.1);
+    transition: 0.5s;
+}
+
+.settings-chunk input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	margin-left: 0px;
+	background: linear-gradient(to top,#000,#555);
+	border-radius:20px;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+	transform: scale(0.98, 0.96);
+	transition: 0.5s
+}
+
+.settings-chunk input[type="checkbox"]:checked::before {
+	background: linear-gradient(to top,#bbb,#fff);
+	transition: 0.5s;
+	margin-left: 30px;
+}
+
+.settings-chunk input[type="checkbox"]:checked {
+	background: #eee;
+}

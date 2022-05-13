@@ -1,0 +1,282 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Kevin的個人網站</title>
+		<link rel="stylesheet" href="css/body.css"/>
+		<link rel="stylesheet" href="css/foot.css"/>
+		<link rel="stylesheet" href="css/header.css"/>
+		<link rel="stylesheet" href="css/home.css"/>
+		<link rel="stylesheet" href="css/project.css"/>
+		<link rel="stylesheet" href="css/teach.css"/>
+		<link rel="stylesheet" href="css/share.css"/>
+		<link rel="stylesheet" href="css/setting.css"/>
+		<link rel="stylesheet" href="css/panels.css"/>
+		<link rel="stylesheet" href="css/chat.css"/>
+
+		<script src="https://kit.fontawesome.com/892ef78008.js" crossorigin="anonymous"></script>
+
+		<script src="/socket.io/socket.io.js"></script>
+	</head>
+	<body>
+		<div id="web">
+			<transition name="slide-leftfade">
+				<div id="loader" v-if="show.loading">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+				<h3>Loading...</h3>
+			</div>
+			</transition>
+			<transition name="slide-upfade">
+				<div id="header" v-if="show.active">
+					<div class="nav">
+						<ul>
+							<li class="list" :id="(show.panel==0)?'marker':''" @click="show.panel=0">
+								<a>
+									<span class="icon"><i class="fas fa-home"></i></span>
+									<span class="text">Home</span>
+								</a>
+							</li>
+							<li class="list" :id="(show.panel==1)?'marker':''" @click="show.panel=1">
+								<a>
+									<span class="icon"><i class="fas fa-book"></i></span>
+									<span class="text">MyProjects</span>
+								</a>
+							</li>
+							<li class="list">
+								<a href="https://github.com/SR0725">
+									<span class="icon"><i class="fab fa-github"></i></span>
+									<span class="text">GitHub</span>
+								</a>
+							</li>
+							<!-- <li class="list">
+								<a href="https://www.youtube.com/c/Ray睿">
+									<span class="icon"><i class="fab fa-youtube"></i></span>
+									<span class="text">YouTube</span>
+								</a>
+							</li> -->
+							<li class="list" :id="(show.panel==2)?'marker':''" @click="show.panel=2">
+								<a>
+									<span class="icon"><i class="fas fa-envelope"></i></span>
+									<span class="text">Contact</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="nav-right">
+						<div class="button" :id="(show.panel==3)?'marker':''" @click="show.panel=3">
+							<i class="fas fa-cog"></i>
+						</div>
+						<div class="button" :id="(show.panel==4)?'marker':''" @click="show.panel=4">
+							<i class="fas fa-bars"></i>
+						</div>
+						<div class="button close" @click="show.active=false">
+							<i class="fas fa-times"></i>
+						</div>
+					</div>
+				</div>
+			</transition>
+			<transition name="slide-rightfade">
+				<div id="main" v-if="show.active">
+					<transition name="slide-rightfade">
+						<div class="projectpanel" v-if="show.panel==1">
+							<div class="project-container">
+								<div class="project-flipcard" v-if="project.flipanimation!=''" :class="project.flipanimation" @animationend="project.flipanimation=''">
+									<div is="project-template"
+										v-bind:type= "project.anim.type"
+										v-bind:title= "project.anim.title"
+										v-bind:content= "project.anim.content"
+										v-bind:img= "project.anim.img"
+										v-bind:btn= "project.anim.btn">
+									</div>
+								</div>
+								<div class="project-card">
+									<div is="project-template"
+										v-bind:type= "project.left.type"
+										v-bind:title= "project.left.title"
+										v-bind:content= "project.left.content"
+										v-bind:img= "project.left.img"
+										v-bind:btn= "project.left.btn">
+									</div>
+								</div>
+								<div class="project-card">
+									<div is="project-template"
+						                v-bind:type= "project.right.type"
+						                v-bind:title= "project.right.title"
+						                v-bind:content= "project.right.content"
+						                v-bind:img= "project.right.img"
+										v-bind:btn= "project.right.btn">
+									</div>
+								</div>
+								<div class="gonext" @click="flipNext()"></div>
+								<div class="goback" @click="flipBack()"></div>
+							</div>
+						</div>
+	  	  			</transition>
+					<transition name="slide-rightfade">
+						<div class="mainpanel" v-if="show.panel==0">
+							<img class="raylogo" src="img/raylogo.png"></img>
+							<img class="rays" src="img/ray_s.png"></img>
+							<div class="msg">
+								<p>
+									一名踏遊於夢想層巒疊嶂間的學生<br>
+									擅長網頁前端開發 遊戲開發 8051單晶片 <br>
+									正一點一滴地築起夢想長城中。
+								</p>
+							</div>
+						</div>
+	  	  			</transition>
+					<transition name="slide-rightfade">
+						<div class="sharepanel" v-if="show.panel==2">
+							<div class="glass-container">
+								<a class="glass-card" href="https://discordapp.com/users/572004405780545536">
+									<i class="fab fa-discord"></i>
+								</a>
+								<a class="glass-card" href="mailto:kevin20160824@gmail.com">
+									<i class="far fa-envelope"></i>
+								</a>
+								<a class="glass-card" href="https://github.com/kevin202112">
+									<i class="fab fa-github"></i>
+								</a>
+								<a class="glass-card" href="https://www.instagram.com/kevin__0824/">
+									<i class="fab fa-instagram"></i>
+								</a>
+								<a class="glass-card" href="https://www.facebook.com/profile.php?id=100009910839442">
+									<i class="fab fa-facebook"></i>
+								</a>
+							</div>
+						</div>
+	  	  			</transition>
+					<transition name="slide-rightfade">
+						<div class="settings-panel" v-if="show.panel==3">
+							<div class="settings-chunk">
+								<h3>介面</h3>
+								<hr></hr>
+								<div>
+									<p>左下角操控說明列表</p>
+									<label>
+										<input v-model="setting.controlTeachPanel" type="checkbox"></input>
+									</label>
+								</div>
+								<div>
+									<p>FPS與延遲顯示</p>
+									<label>
+										<input v-model="setting.FPSDisplay" type="checkbox"></input>
+									</label>
+								</div>
+							</div>
+							<div class="settings-chunk">
+								<h3>顯示</h3>
+								<hr></hr>
+								<div>
+									<p>最大FPS限制</p>
+									<label class="maxfps">
+										<input v-model="setting.maxFPS" type="range" min="10" max="120" value="30">
+										<p id="maxfps">{{ setting.maxFPS }}<p>
+									</label>
+								</div>
+								<div>
+									<p>相機距離</p>
+									<label class="cameradistance">
+										<input v-model="setting.cameraDistance" v-on:change="settingDown" type="range" min="0.1" max="10" step="0.01" value="2.2">
+										<p id="cameradistance">{{ setting.cameraDistance }}</p>
+									</label>
+								</div>
+								<div>
+									<p>解析度設定</p>
+									<select v-model="setting.resolution" v-on:change="settingDown" id="resolutionSet">
+									  <option value="1080" selected>1080p</option>
+									  <option value="720">720p</option>
+									  <option value="480">480p</option>
+									  <option value="360">360p</option>
+									</select>
+								</div>
+							</div>
+						</div>
+	  	  			</transition>
+					<transition name="slide-rightfade">
+						<div class="panels-panel" v-if="show.panel==4">
+							<h3>此頁面尚待開發中</h3>
+						</div>
+	  	  			</transition>
+				</div>
+			</transition>
+			<transition name="slide-downfade">
+				<div id="foot" v-if="show.active">
+					<div class="project-bottom-nav" v-if="show.panel==1">
+						<div class="pagenumber">
+							<i class="fas fa-search" @click="flipTo()"></i>
+							<input type="search"  v-model="project.searchIndex"></input>
+							{{ project.index + 1 }}
+							 /
+							 {{ project.max }}
+						 </div>
+					</div>
+				</div>
+			</transition>
+			<transition name="slide-downfade">
+				<div id="teach" v-if="setting.controlTeachPanel">
+					<div class="wsad">
+						<img src="img/wsad.png"></img>
+						WSAD 前後左右移動
+					</div>
+					<div class="jump">
+						<img src="img/jump.png"></img>
+						Space 跳躍
+					</div>
+					<div class="use">
+						<img src="img/use.png"></img>
+						F 與物件互動
+					</div>
+				</div>
+			</transition>
+		</div>
+
+		<div id="fkey">
+			<div id="f1" v-show="show.f1active" onclick="activate()">
+				<img src="img/use.png"></img>
+				F鍵 開啟首頁介面
+			</div>
+			<div id="f1" v-show="show.f2active" onclick="activate()">
+				<img src="img/use.png"></img>
+				F鍵 開啟我的作品
+			</div>
+			<div id="f1" v-show="show.f3active" onclick="activate()">
+				<img src="img/use.png"></img>
+				F鍵 開啟聯絡資訊
+			</div>
+		</div>
+
+		<div id="joystick">
+			手機不支援搖桿
+		</div>
+
+		<div id="chat" class="chat-box">
+			<div id="chatbox" class="box">
+				<div v-for="(data, index) in messages" v-bind:class="typeTest(data)">{{data.msg}}</div>
+			</div>
+			<input type="text" class="msg" v-model="sendMessage"></input><span class="msgtriangle"></span>
+			<button type="button" class="submit" @click="send"><i class="fas fa-paper-plane"></i></button>
+		</div>
+
+		<script src="scripts/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="scripts/joy.js"></script>
+		<script src="scripts/web/index.js"></script>
+		<script src="scripts/tool.js"></script>
+		<script src="scripts/3d/three.js"></script>
+		<script src="scripts/3d/fflate.min.js"></script>
+		<script src="scripts/3d/GLTFLoader.js"></script>
+		<script src="scripts/3d/FBXLoader.js"></script>
+		<script src="scripts/3d/SkeletonUtils.js"></script>
+		<script src="scripts/3d/objectbuild.js"></script>
+		<script src="scripts/controls.js"></script>
+		<script src="scripts/3d/index.js"></script>
+		<script src="scripts/3d/function.js"></script>
+		<script src="scripts/socket.js"></script>
+		<script src="scripts/chat.js"></script>
+		<script src="scripts/3d/multplay.js"></script>
+
+	</body>
+</html>

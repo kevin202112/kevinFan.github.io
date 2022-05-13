@@ -1,0 +1,143 @@
+.chat-box{
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+}
+
+.chat-box .box{
+	transition: 0.3s;
+	position: relative;
+	height: 200px;
+	width: 600px;
+	background-color: rgba(0, 0, 0, 0);
+	padding-bottom: 50px;
+	padding-right: 10px;
+	overflow-y: scroll;
+}
+
+.chat-box:hover .box{
+	transition: 0.3s;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
+.chat-box .msg{
+	transition: 0.3s;
+	position: absolute;
+	bottom: -5px;
+	left: 5px;
+	width: 0px;
+	height: 0px;
+	border-radius: 15px 0 15px 15px;
+	border: none !important;
+	outline: none;
+	font-size: 30px;
+	padding-left: 10px;
+}
+
+.chat-box:hover .msg{
+	transition: 0.3s;
+	bottom: 5px;
+	width: 510px;
+	height: 50px;
+}
+
+.chat-box .msgtriangle{
+	transition: 0.3s;
+	position: absolute;
+	bottom: -5px;
+	right: 570px;
+	width: 0;
+	height: 0;
+	border-top: 0px solid #fff;
+	border-right: 0px solid transparent;
+	z-index: 9999;
+}
+
+.chat-box:hover .msgtriangle{
+	border-top: 20px solid #fff;
+	border-right: 20px solid transparent;
+	bottom: 35px;
+	right: 75px;
+	transition: 0.3s;
+}
+
+.chat-box .submit{
+	transition: 0.3s;
+	position: absolute;
+	right: 5px;
+	bottom: 5px;
+	width: 40px;
+	height: 40px;
+	background: #008a7c;
+	border-radius: 50%;
+	font-size: 20px;
+	color: #fff;
+	padding-right: 5px;
+	padding-bottom: 1px;
+	border: none !important;
+}
+
+.chat-box:hover .submit{
+	transition: 0.3s;
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+	cursor: pointer;
+}
+
+.chat-box .box .msg-box-other{
+	width: 400px;
+	border-radius: 0px 15px 15px 15px;
+	background: #ddd;
+	border: none !important;
+	outline: none;
+	font-size: 20px;
+	padding: 10px;
+	margin: 15px;
+	word-break: break-all;
+}
+
+
+.chat-box .box .msg-box-me{
+	position: relative;
+	width: 400px;
+	border-radius: 15px 0px 15px 15px;
+	background: #e1ffc7;
+	left: 150px;
+	border: none !important;
+	outline: none;
+	font-size: 20px;
+	padding: 10px;
+	margin: 15px;
+	word-break: break-all;
+}
+
+
+.chat-box .box {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2);
+}
+.chat-box .box::-webkit-scrollbar {
+	height: 10px;
+}
+.chat-box .box::-webkit-scrollbar-button {
+	width: 18vw;
+	background: rgba(0, 0, 0, 0);
+}
+.chat-box .box::-webkit-scrollbar-track-piece {
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+}
+.chat-box .box::-webkit-scrollbar-corner {
+	border: 1px solid red;
+}
+.chat-box .box::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+.chat-box .box::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.3);
+	border-radius: 5px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+}

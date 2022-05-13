@@ -1,0 +1,248 @@
+.projectpanel {
+	position: absolute;
+	margin-left: 10vw;
+	margin-top: calc(2vh + 50px);
+	width: 80vw;
+	height: 71vh;
+	box-shadow: 15px 15px 40px  rgba(255, 255, 255, 0.1);
+	border-radius: 0px 5px 15px 5px;
+	background-image : url(../img/header.jpg);
+	background-size: 100%;
+	background-position: 50%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	overflow: hidden;
+}
+
+.project-container {
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+	margin: auto;
+	z-index: 10;
+}
+
+.project-card {
+	transition: 0.5s;
+	position: relative;
+	height: calc(942px / 1.8 + 6px);
+	width: calc(665px / 1.8 + 6px);
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+	border-radius: 3px;
+	background: #010615;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.project-flipcard{
+	position: absolute;
+	border-radius: 5px;
+	top: 0;
+	right: 50%;
+	height: calc(942px / 1.8);
+	width: calc(665px / 1.8);
+	background-image: url("../img/paper.png");
+	background-size: 100%;
+	z-index: 10000;
+}
+
+.project-flipcard.flipingnext{
+	animation: cardFlipFromRight 0.2s ease;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+	transform: scaleX(1);
+}
+
+.project-flipcard.flipingback{
+	animation: cardFlipFromLeft 0.2s ease;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode:forwards;
+	transform: scaleX(1);
+}
+
+@keyframes cardFlipFromRight{
+	0% {
+		right: calc(50% - 665px / 1.8);
+		transform: scaleX(1);
+	}50%{
+		right: calc(50% - 665px / 3.6);
+		transform: scaleX(0);
+	}
+	100%{
+		right: 50%;
+		transform: scaleX(1);
+	}
+}
+
+@keyframes cardFlipFromLeft{
+	0% {
+		right: 50%;
+		transform: scaleX(1);
+	}50%{
+		right: calc(50% - 665px / 3.6);
+		transform: scaleX(0);
+	}
+	100%{
+		right: calc(50% - 665px / 1.8);
+		transform: scaleX(1);
+	}
+}
+
+
+.gonext{
+	position: absolute;
+	background-image: url("../img/gonext.png");
+	background-size: 100%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	right: 20px;
+	bottom: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+	transform: scale(1);
+}
+
+.gonext:hover{
+	transform: scale(1.2);
+}
+
+.goback{
+	position: absolute;
+	background-image: url("../img/goback.png");
+	background-size: 100%;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	left: 20px;
+	bottom: 20px;
+	cursor: pointer;
+	transition: 0.5s;
+	transform: scale(1);
+}
+.goback:hover{
+	transform: scale(1.2);
+}
+.project-content {
+	font-family: brush;
+	position: relative;
+	height: calc(942px / 1.8);
+	width: calc(665px / 1.8);
+	border-radius: 3px;
+	background-image: url("../img/paper.png");
+	background-size: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 11;
+}
+
+.project-content h3{
+	font-size: 16px;
+	position: absolute;
+	top: 6px;
+	right: 12px;
+}
+
+.project-content h2{
+	font-size: 30px;
+	position: absolute;
+	top: 20px;
+	left: 16px;
+}
+
+.project-content p{
+	font-size: 20px;
+	position: absolute;
+	top: 68px;
+	left: 20px;
+	width: 85%;
+}
+
+.project-content img{
+	transition: 0.5s;
+	position: absolute;
+	bottom: 100px;
+	left: 20px;
+	width: 85%;
+	z-index: 1000;
+}
+
+.project-content a{
+	font-size: 20px;
+	position: absolute;
+	bottom: 30px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 2px solid #000;
+}
+
+.project-content div{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pagenumber{
+	position: absolute;
+	color: #fff;
+	background-size: 100%;
+	width: 180px;
+	height: 80%;
+	left:20px;
+	border-radius: 50px;
+	border: 2px solid #fff;
+	margin: 0 auto;
+	display: flex;
+	justify-content: flex-start;
+	padding-left: 10px;
+	align-items: center;
+	z-index: 9999;
+}
+
+.pagenumber i{
+	cursor: pointer;
+}
+
+.pagenumber input{
+	position: relative;
+	background-size: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	margin-left:5px;
+	margin-right:10px;
+	color: #fff;
+	width: 80px;
+	height: 25px;
+	border-radius: 50px;
+	left: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+.pagenumber:hover::before{
+	content: "搜尋欄可以搜尋頁碼或主題與標題，輸入完畢點放大鏡以搜尋";
+	padding: 10px;
+	position: absolute;
+	bottom: -95px;
+	right: -100px;
+	background: rgba(0, 0, 0, 0.9);
+	border: 2px solid #fff;
+	color: #fff;
+	width: 200px;
+	height: 65px;
+	border-radius: 0 15px 15px 15px;
+	z-index: 9999;
+}

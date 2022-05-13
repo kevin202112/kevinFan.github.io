@@ -1,0 +1,76 @@
+.mainpanel {
+	position: absolute;
+	margin-left: 10vw;
+	margin-top: calc(2vh + 50px);
+	width: 80vw;
+	height: 61vh;
+	box-shadow: 15px 15px 40px  rgba(255, 255, 255, 0.1);
+	border-radius: 0px 5px 15px 5px;
+	background-image : url(../img/header.jpg);
+	background-size: 100%;
+	background-position: 50%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	border-left: 1px solid rgba(255, 255, 255, 0.5);
+	z-index: 10;
+	overflow: hidden;
+}
+
+.mainpanel .raylogo {
+	transition: 0.5s;
+	position: relative;
+	border-radius: 50%;
+	width: 14vw;
+	left: 20px;
+	top: 20px;
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.4);
+	border-bottom: 2px solid rgba(255, 255, 255, 1);
+	border-right: 2px solid rgba(255, 255, 255, 1);
+}
+
+.mainpanel .raylogo:hover {
+	transition: 0.5s;
+	border-radius: 15px;
+	top: 15px;
+}
+
+.mainpanel::before{
+	content: "";
+	height: 942px;
+	width: 665px;
+	position: absolute;
+	background-image: url("../img/paper.png");
+	border-radius: 5px;
+	background-size: 100%;
+	transform: rotateZ(30deg);
+	left: -400px;
+	top: -250px;
+}
+
+.mainpanel .rays{
+	border-radius: 30px;
+	transition: 0.5s;
+	z-index: 1000;
+	position: relative;
+	width: 7vw;
+	top: 35vh;
+	left: -9vw;
+}
+
+.mainpanel .rays:hover{
+	transition: 0.5s;
+	box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.mainpanel .msg{
+	position: absolute;
+	left: 500px;
+	top: 100px;
+	color: #fff;
+	font-size: 1.1em;
+	width: 31vw;
+	background: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	padding: 15px;
+}

@@ -1,0 +1,23 @@
+.project-bottom-nav {
+	position: absolute;
+	right: 10vw;
+	top: 80vh;
+	width: 320px;
+	height: 6vh;
+	background: rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 11;
+}
+
+
+#joyDiv {
+	width: 300px;
+	height: 300px;
+	position: absolute;
+	bottom: 50px;
+	left:calc(50vw - 150px);
+	z-index: 9999999;
+}

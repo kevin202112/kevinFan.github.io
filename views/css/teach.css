@@ -1,0 +1,64 @@
+#teach{
+	color: #fff;
+	font-size: 16px;
+	position: absolute;
+	background: linear-gradient(-135deg, transparent 20px, rgba(0, 0, 0, 0.8) 0);
+	width: 600px;
+	height: 30px;
+	bottom: 0px;
+	left: 0px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#teach .wsad{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 15px;
+}
+
+#teach .jump{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 15px;
+
+}
+
+#teach .use{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-left: 15px;
+}
+
+#teach img{
+	height: 26px;
+	position: relative;
+	margin-right: 5px;
+}
+
+
+#fkey #f1{
+	position: absolute;
+	top: 70vh;
+	left: calc(50vw - 100px);
+	background: rgba(0, 0, 0, 0.8);
+	width: 200px;
+	height: 40px;
+	border-radius: 15px;
+	color: #fff;
+	font-size: 16px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+#fkey #f1 img{
+	height: 32px;
+	position: relative;
+	margin-right: 10px;
+	margin-left: 10px;
+}
